@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELATÓRIO DE SERVIÇO</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <!-- Cabeçalho -->
+        <div class="header">
+            <h2>POLÍCIA MILITAR DO ESTADO DE SÃO PAULO</h2>
+            <h3>COMANDO DE POLICIAMENTO DO INTERIOR – 8</h3>
+            <h3>8º BAEP</h3>
+        </div>
+
+        <!-- Relatório de Serviço -->
+        <fieldset>
+            <legend><b>RELATÓRIO DE SERVIÇO</b></legend>
+            <div class="row">
+                <div class="form-group">
+                    <label for="pel">º PEL SEG AUT:</label>
+                    <input type="text" id="pel" name="pel">
+                </div>
+                <div class="form-group">
+                    <label for="cmt_pel">CMT PEL:</label>
+                    <input type="text" id="cmt_pel" name="cmt_pel">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="quarto_das">QUARTO DAS:</label>
+                    <input type="time" id="quarto_das" name="quarto_das">
+                </div>
+                <div class="form-group">
+                    <label for="quarto_as">ÀS:</label>
+                    <input type="time" id="quarto_as" name="quarto_as">
+                </div>
+                <div class="form-group">
+                    <label for="data">DATA:</label>
+                    <input type="date" id="data" name="data">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="km_inicio">KM INÍCIO:</label>
+                    <input type="number" id="km_inicio" name="km_inicio" onchange="calculaKmPercorrido()">
+                </div>
+                <div class="form-group">
+                    <label for="km_termino">KM TÉRMINO:</label>
+                    <input type="number" id="km_termino" name="km_termino" onchange="calculaKmPercorrido()">
+                </div>
+                <div class="form-group">
+                    <label for="km_percorrido">KM PERCORRIDO:</label>
+                    <input type="number" id="km_percorrido" name="km_percorrido" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="viatura"><b>VIATURA BAEP</b></label>
+                    <input type="text" id="viatura" name="viatura" maxlength="15">
+                </div>
+                <div class="form-group">
+                    <label for="rondante">RONDANTE:</label>
+                    <input type="text" id="rondante" name="rondante" maxlength="15">
+                </div>
+                <div class="form-group">
+                    <label for="ronda_horario">RONDA HORÁRIO:</label>
+                    <input type="text" id="ronda_horario" name="ronda_horario" maxlength="15">
+                </div>
+                <div class="form-group">
+                    <label for="obs">OBS.:</label>
+                    <textarea id="obs" name="obs" rows="1" style="width: 60%;"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="bo_pm">BO/PM Nº:</label>
+                    <input type="text" id="bo_pm" name="bo_pm">
+                </div>
+                <div class="form-group">
+                    <label for="bo_pc">BO/PC Nº:</label>
+                    <input type="text" id="bo_pc" name="bo_pc">
+                </div>
+                <div class="form-group">
+                    <label for="laudo_ic">LAUDO IC Nº:</label>
+                    <input type="text" id="laudo_ic" name="laudo_ic">
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Equipe -->
+        <fieldset>
+            <legend><b>EQUIPE</b></legend>
+            <div class="row">
+                <div class="form-group">
+                    <label for="cmt_pm">CMT PM RE NOME:</label>
+                    <input type="text" id="cmt_pm" name="cmt_pm">
+                </div>
+                <div class="form-group">
+                    <label for="mot_pm">MOT PM RE NOME:</label>
+                    <input type="text" id="mot_pm" name="mot_pm">
+                </div>
+                <div class="form-group">
+                    <label for="seg_pm">SEG PM RE NOME:</label>
+                    <input type="text" id="seg_pm" name="seg_pm">
+                </div>
+                <div class="form-group">
+                    <label for="seg_pm2">SEG PM RE NOME:</label>
+                    <input type="text" id="seg_pm2" name="seg_pm2">
+                </div>
+                <div class="form-group">
+                    <label for="seg_pm3">SEG PM RE NOME:</label>
+                    <input type="text" id="seg_pm3" name="seg_pm3">
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Armamentos -->
+        <fieldset>
+            <legend><b>ARMAMENTOS</b></legend>
+            <div class="row">
+                <div class="form-group">
+                    <label for="fuzil1">FUZIL/CAL Nº:</label>
+                    <input type="text" id="fuzil1" name="fuzil1">
+                </div>
+                <div class="form-group">
+                    <label for="fuzil2">FUZIL/CAL Nº:</label>
+                    <input type="text" id="fuzil2" name="fuzil2">
+                </div>
+                <div class="form-group">
+                    <label for="fuzil3">FUZIL/CAL Nº:</label>
+                    <input type="text" id="fuzil3" name="fuzil3">
+                </div>
+                <div class="form-group">
+                    <label for="fuzil4">FUZIL/CAL Nº:</label>
+                    <input type="text" id="fuzil4" name="fuzil4">
+                </div>
+                <div class="form-group">
+                    <label for="pistola1">PT/RV/CAL Nº:</label>
+                    <input type="text" id="pistola1" name="pistola1">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="pistola2">PT/RV/CAL Nº:</label>
+                    <input type="text" id="pistola2" name="pistola2">
+                </div>
+                <div class="form-group">
+                    <label for="pistola3">PT/RV/CAL Nº:</label>
+                    <input type="text" id="pistola3" name="pistola3">
+                </div>
+                <div class="form-group">
+                    <label for="pistola4">PT/RV/CAL Nº:</label>
+                    <input type="text" id="pistola4" name="pistola4">
+                </div>
+                <div class="form-group">
+                    <label for="taser">TASER Nº:</label>
+                    <input type="text" id="taser" name="taser">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="metralhadora">METRALHADORA NEGEV Nº:</label>
+                    <input type="text" id="metralhadora" name="metralhadora">
+                </div>
+                <div class="form-group">
+                    <label for="espingarda1">ESP CAL. 12 Nº:</label>
+                    <input type="text" id="espingarda1" name="espingarda1">
+                </div>
+                <div class="form-group">
+                    <label for="espingarda2">ESP CAL. 12 Nº:</label>
+                    <input type="text" id="espingarda2" name="espingarda2">
+                </div>
+                <div class="form-group">
+                    <label for="ht_id">HT/ID:</label>
+                    <input type="text" id="ht_id" name="ht_id">
+                </div>
+                <div class="form-group">
+                    <label for="outros">OUTROS:</label>
+                    <input type="text" id="outros" name="outros">
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Estatísticas do Patrulhamento
+        <!-- Estatísticas do Patrulhamento -->
+        <fieldset>
+            <legend><b>ESTATÍSTICAS DO PATRULHAMENTO</b></legend>
+            <div class="row">
+                <div class="form-group">
+                    <label for="autos_vistoriados">AUTOS VISTORIADOS:</label>
+                    <input type="text" id="autos_vistoriados" name="autos_vistoriados" maxlength="2">
+                </div>
+                <div class="form-group">
+                    <label for="pessoas_abordadas">PESSOAS ABORDADAS:</label>
+                    <input type="text" id="pessoas_abordadas" name="pessoas_abordadas" maxlength="2">
+                </div>
+                <div class="form-group">
+                    <label for="escoltas_realizadas">ESCOLTA REALIZADA:</label>
+                    <input type="text" id="escoltas_realizadas" name="escoltas_realizadas" maxlength="2">
+                </div>
+                <div class="form-group">
+                    <label for="motos_vistoriadas">MOTOS VISTORIADAS:</label>
+                    <input type="text" id="motos_vistoriadas" name="motos_vistoriadas" maxlength="2">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="pessoas_autuadas">PESSOAS AUTUADAS:</label>
+                    <input type="text" id="pessoas_autuadas" name="pessoas_autuadas" maxlength="2">
+                </div>
+                <div class="form-group">
+                    <label for="armas_apreendidas">ARMAS APREENDIDAS:</label>
+                    <input type="text" id="armas_apreendidas" name="armas_apreendidas" maxlength="2">
+                </div>
+                <div class="form-group">
+                    <label for="veiculos_apreendidos">VEÍCULOS APREENDIDOS:</label>
+                    <input type="text" id="veiculos_apreendidos" name="veiculos_apreendidos" maxlength="2">
+                </div>
+                <div class="form-group">
+                    <label for="condenados">CONDENADOS CAPTURADOS:</label>
+                    <input type="text" id="condenados" name="condenados" maxlength="2">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="municoes_apreendidas">MUNIÇÕES APREENDIDAS:</label>
+                    <input type="text" id="municoes_apreendidas" name="municoes_apreendidas" maxlength="2">
+                </div>
+                <div class="form-group">
+                    <label for="veiculos_localizados">VEÍCULOS LOCALIZADOS:</label>
+                    <input type="text" id="veiculos_localizados" name="veiculos_localizados" maxlength="2">
+                </div>
+                <div class="form-group">
+                    <label for="adolescentes_sindicados">ADOLESCENTES SINDICADOS:</label>
+                    <input type="text" id="adolescentes_sindicados" name="adolescentes_sindicados" maxlength="2">
+                </div>
+                <div class="form-group">
+                    <label for="objetos_apreendidos">OBJETOS APREENDIDOS:</label>
+                    <input type="text" id="objetos_apreendidos" name="objetos_apreendidos" maxlength="2">
+                </div>
+                <div class="form-group">
+                    <label for="residencias_vistoriadas">RESIDÊNCIAS VISTORIADAS:</label>
+                    <input type="text" id="residencias_vistoriadas" name="residencias_vistoriadas" maxlength="2">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="drogas"><b>DROGAS:</b></label>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="cocaina">COCAÍNA (kg):</label>
+                        <input type="number" step="0.01" id="cocaina" name="cocaina" maxlength="4">
+                    </div>
+                    <div class="form-group">
+                        <label for="maconha">MACONHA (kg):</label>
+                        <input type="number" step="0.01" id="maconha" name="maconha" maxlength="4">
+                    </div>
+                    <div class="form-group">
+                        <label for="crack">CRACK (kg):</label>
+                        <input type="number" step="0.01" id="crack" name="crack" maxlength="4">
+                    </div>
+                    <div class="form-group">
+                        <label for="outros">OUTROS (kg):</label>
+                        <input type="number" step="0.01" id="outros" name="outros" maxlength="4">
+                    </div>
+                    <div class="form-group">
+                        <label for="total_drogas">TOTAL (kg):</label>
+                        <input type="number" step="0.01" id="total_drogas" name="total_drogas" maxlength="4">
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Ocorrências -->
+        <fieldset>
+            <legend><b>OCORRÊNCIAS</b></legend>
+            <div class="row">
+                <div class="form-group">
+                    <label for="h_irrad">H IRRAD H LOCAL:</label>
+                    <input type="time" id="h_irrad" name="h_irrad">
+                </div>
+                <div class="form-group">
+                    <label for="termino1">1º TÉRMINO:</label>
+                    <input type="time" id="termino1" name="termino1">
+                </div>
+                <div class="form-group">
+                    <label for="termino2">2º TÉRMINO:</label>
+                    <input type="time" id="termino2" name="termino2">
+                </div>
+                <div class="form-group">
+                    <label for="natureza_endereco">NATUREZA / ENDEREÇO:</label>
+                    <input type="text" id="natureza_endereco" name="natureza_endereco">
+                </div>
+                <div class="form-group">
+                    <label for="numero_ocorrencia">Nº OC.:</label>
+                    <input type="text" id="numero_ocorrencia" name="numero_ocorrencia" maxlength="6">
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Instruções -->
+        <fieldset>
+            <legend><b>INSTRUÇÕES (ASSUNTO, LOCAL, INSTRUTOR, ETC)</b></legend>
+            <div class="form-group">
+                <textarea id="instrucoes" name="instrucoes" rows="2"></textarea>
+            </div>
+        </fieldset>
+
+        <!-- Histórico -->
+        <fieldset>
+            <legend><b>HISTÓRICO</b></legend>
+            <div class="form-group">
+                <textarea id="historico" name="historico" rows="8"></textarea>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="area_atuacao">ÁREA DE ATUAÇÃO (BTL/MUNICÍPIO):</label>
+                    <input type="text" id="area_atuacao" name="area_atuacao" style="width: 70%;">
+                </div>
+                <div class="form-group">
+                    <label for="horas">HORAS:</label>
+                    <input type="text" id="horas" name="horas" maxlength="10">
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Anexos -->
+        <fieldset>
+            <legend><b>ANEXOS</b></legend>
+            <div class="row">
+                <div class="form-group">
+                    <label for="pessoas_abordadas">PESSOAS ABORDADAS:</label>
+                    <input type="text" id="pessoas_abordadas" name="pessoas_abordadas">
+                </div>
+                <div class="form-group">
+                    <label for="veiculos_vistoriados">VEÍCULOS VISTORIADOS:</label>
+                    <input type="text" id="veiculos_vistoriados" name="veiculos_vistoriados">
+                </div>
+                <div class="form-group">
+                    <label for="bo_pm_anexo">BO/PM Nº:</label>
+                    <input type="text" id="bo_pm_anexo" name="bo_pm_anexo">
+                </div>
+                <div class="form-group">
+                    <label for="parte">PARTE Nº:</label>
+                    <input type="text" id="parte" name="parte">
+                </div>
+                <div class="form-group">
+                    <label for="bo_pc_anexo">BO/PC Nº:</label>
+                    <input type="text" id="bo_pc_anexo" name="bo_pc_anexo">
+                </div>
+                <div
+                <div class="form-group">
+                    <label for="ordem_servico">ORD. SERVIÇO Nº:</label>
+                    <input type="text" id="ordem_servico" name="ordem_servico">
+                </div>
+                <div class="form-group">
+                    <label for="outros_anexos">OUTROS:</label>
+                    <input type="text" id="outros_anexos" name="outros_anexos">
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Término de Turno de Serviço -->
+        <fieldset>
+            <legend><b>TÉRMINO DE TURNO DE SERVIÇO</b></legend>
+            <div class="row">
+                <div class="form-group">
+                    <label for="local_quartel">Quartel em:</label>
+                    <input type="text" id="local_quartel" name="local_quartel" placeholder="Presidente Prudente">
+                </div>
+                <div class="form-group">
+                    <label for="data_finalizacao">Data:</label>
+                    <input type="date" id="data_finalizacao" name="data_finalizacao" style="width: 120px;">
+                </div>
+                <div class="form-group">
+                    <label for="assinatura_cmt">ASSINATURA CMT EQUIPE:</label>
+                    <input type="text" id="assinatura_cmt" name="assinatura_cmt">
+                </div>
+            </div>
+        </fieldset>
+
+        <button type="submit">Enviar Relatório</button>
+    </div>
+
+    <script>
+        function calculaKmPercorrido() {
+            const kmInicio = document.getElementById('km_inicio').value;
+            const kmTermino = document.getElementById('km_termino').value;
+            if (kmInicio && kmTermino) {
+                document.getElementById('km_percorrido').value = Math.abs(kmTermino - kmInicio);
+            } else {
+                document.getElementById('km_percorrido').value = '';
+            }
+        }
+    </script>
+</body>
+</html>
